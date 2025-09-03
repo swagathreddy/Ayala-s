@@ -1,0 +1,32 @@
+This folder contains placeholder information for the game assets.
+
+Required Images:
+=================
+
+Scene Backgrounds (Black & White):
+- scene1_bw.jpg: Main sorting dock scene
+- scene2_bw.jpg: Bycatch processing area scene  
+- scene3_bw.jpg: Fish market and transportation scene
+
+Colored Element Images (PNG with transparency):
+- colored_tuna.png: Colored tuna fish
+- colored_worker.png: Colored sorting worker
+- colored_ice.png: Colored ice storage
+- colored_scale.png: Colored weighing scale
+- colored_shark.png: Colored shark
+- colored_ray.png: Colored stingray
+- colored_turtle.png: Colored sea turtle
+- colored_bins.png: Colored sorting bins
+- colored_truck.png: Colored delivery truck
+- colored_vendor.png: Colored fish vendor
+- colored_stall.png: Colored market stall
+- colored_tags.png: Colored price tags
+
+Instructions:
+============
+1. Replace this file with your actual game assets
+2. Ensure all images are optimized for web use
+3. Colored elements should have transparent backgrounds
+4. Scene backgrounds should be high resolution for crisp display
+
+The game will work with placeholder styling until real images are provided.
