@@ -123,16 +123,17 @@ export const sceneData: Record<number, SceneData> = {
         mobileHoverArea: { top: '25%', left: '15%', width: '10%', height: '15%' },
         isDiscovered: false,
         subElements: [
-          { id: 101, name: 'Crab', image: '/images/Bycatch/Crab.png', hoverArea: { top: '75%', left: '67%', width: '10%', height: '10%' }, isDiscovered: false },
-          { id: 102, name: 'Electric Ray', image: '/images/Bycatch/Electric_ray.png', hoverArea: { top: '75%', left: '50%', width: '15%', height: '10%' }, isDiscovered: false },
-          { id: 103, name: 'Frogfish', image: '/images/Bycatch/Frogfish.png', hoverArea: { top: '28%', left: '42%', width: '12%', height: '12%' }, isDiscovered: false },
-          { id: 104, name: 'Stargazer',  image: '/images/Bycatch/Stargazer.png', hoverArea: { top: '49%', left: '37%', width: '18%', height: '10%' }, isDiscovered: false },
-          { id: 105, name: 'Pufferfish',  image: '/images/Bycatch/Puffer_fish.png', hoverArea: { top: '28%', left: '57%', width: '10%', height: '10%' }, isDiscovered: false },
-          { id: 106, name: 'Seahorse',  image: '/images/Bycatch/Seahorse.png', hoverArea: { top: '58%', left: '70%', width: '10%', height: '15%' }, isDiscovered: false },
-          { id: 107, name: 'Sea Robin',  image: '/images/Bycatch/Searobin.png', hoverArea: { top: '62%', left: '63%', width: '8%', height: '8%' }, isDiscovered: false },
-          { id: 108, name: 'Shrimp',  image: '/images/Bycatch/Shrimp.png', hoverArea: { top: '12%', left: '40%', width: '20%', height: '15%' }, isDiscovered: false },
-          { id: 109, name: 'Sole fish',  image: '/images/Bycatch/Sole_fish.png', hoverArea: { top: '34%', left: '25%', width: '15%', height: '15%' }, isDiscovered: false },
-          { id: 110, name: 'Star Fish',  image: '/images/Bycatch/Starfish.png', hoverArea: { top: '43%', left: '59%', width: '12%', height: '10%' }, isDiscovered: false },
+          // Sub-elements now have full interactive properties
+          { id: 101, name: 'Crab', coloredImage: '/images/Bycatch/Crab_color.png', popupImages: { desktop: '/images/Bycatch/Crab.png', mobile: '/images/Bycatch/Crab.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '40%', left: '43%', width: '5%', height: '5%' }, isDiscovered: false },
+          { id: 102, name: 'Electric Ray', coloredImage: '/images/Bycatch/ElectricRay_color.png', popupImages: { desktop: '/images/Bycatch/Electric_ray.png', mobile: '/images/Bycatch/Electric_ray.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '40%', left: '35%', width: '8%', height: '10%' }, isDiscovered: false },
+          { id: 103, name: 'Frogfish', coloredImage: '/images/Bycatch/Frogfish_color.png', popupImages: { desktop: '/images/Bycatch/Frogfish.png', mobile: '/images/Bycatch/Frogfish.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '28%', left: '33%', width: '8%', height: '6%' }, isDiscovered: false },
+          { id: 104, name: 'Stargazer',  coloredImage: '/images/Bycatch/Stargazer_color.png', popupImages: { desktop: '/images/Bycatch/Stargazer.png', mobile: '/images/Bycatch/Stargazer.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '33%', left: '30%', width: '10%', height: '8%' }, isDiscovered: false },
+          { id: 105, name: 'Pufferfish',  coloredImage: '/images/Bycatch/Pufferfish_color.png', popupImages: { desktop: '/images/Bycatch/Puffer_fish.png', mobile: '/images/Bycatch/Puffer_fish.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '26%', left: '37%', width: '8%', height: '5%' }, isDiscovered: false },
+          { id: 106, name: 'Seahorse',  coloredImage: '/images/Bycatch/Seahorse_color.png', popupImages: { desktop: '/images/Bycatch/Seahorse.png', mobile: '/images/Bycatch/Seahorse.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '35%', left: '45%', width: '3%', height: '6%' }, isDiscovered: false },
+          { id: 107, name: 'Sea Robin',  coloredImage: '/images/Bycatch/Searobin_color.png', popupImages: { desktop: '/images/Bycatch/Searobin.png', mobile: '/images/Bycatch/Searobin.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '35%', left: '42%', width: '3%', height: '5%' }, isDiscovered: false },
+          { id: 108, name: 'Shrimp',  coloredImage: '/images/Bycatch/Shrimp_color.png', popupImages: { desktop: '/images/Bycatch/Shrimp.png', mobile: '/images/Bycatch/Shrimp.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '24%', left: '32%', width: '5%', height: '5%' }, isDiscovered: false },
+          { id: 109, name: 'Sole fish',  coloredImage: '/images/Bycatch/Solefish_color.png', popupImages: { desktop: '/images/Bycatch/Sole_fish.png', mobile: '/images/Bycatch/Sole_fish.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '30%', left: '23%', width: '10%', height: '5%' }, isDiscovered: false },
+          { id: 110, name: 'Star Fish',  coloredImage: '/images/Bycatch/Starfish_color.png', popupImages: { desktop: '/images/Bycatch/Starfish.png', mobile: '/images/Bycatch/Starfish.png' }, position: { top: '0%', left: '0%', width: '100%', height: '100%' }, hoverArea: { top: '32%', left: '40%', width: '6%', height: '4%' }, isDiscovered: false}
         ]
       },
       {

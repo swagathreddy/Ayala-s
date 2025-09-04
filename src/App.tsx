@@ -76,9 +76,8 @@ function App() {
       <main className="flex-1 flex items-center justify-center p-4">
         <div className="relative max-w-7xl w-full flex items-center justify-center">
           
-          {/* Desktop-only Arrows */}
-          {(currentScene === 1 || currentScene === 2) && (
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center w-48 text-center -translate-x-1/4">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center w-48 text-center -translate-x-1/4">
+              {(currentScene === 1 || currentScene === 2) && (
                 <button
                     onClick={handleLeftArrow}
                     className="bg-white hover:bg-blue-50 text-blue-600 rounded-full p-3 shadow-lg transition-transform duration-300 hover:scale-110 border-2 border-blue-200"
@@ -86,17 +85,11 @@ function App() {
                 >
                     <ChevronLeft size={32} />
                 </button>
-                <p className="mt-2 text-xs text-gray-600 font-semibold">
-                    {currentScene === 1 
-                        ? "Imagine you are standing in the middle of the landing dock..."
-                        : "To middle of the landing dock"
-                    }
-                </p>
-            </div>
-          )}
+              )}
+          </div>
 
-          {(currentScene === 1 || currentScene === 3) && (
-             <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center w-48 text-center translate-x-1/4">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center w-48 text-center translate-x-1/4">
+             {(currentScene === 1 || currentScene === 3) && (
                 <button
                     onClick={handleRightArrow}
                     className="bg-white hover:bg-blue-50 text-blue-600 rounded-full p-3 shadow-lg transition-transform duration-300 hover:scale-110 border-2 border-blue-200"
@@ -104,14 +97,8 @@ function App() {
                 >
                     <ChevronRight size={32} />
                 </button>
-                 <p className="mt-2 text-xs text-gray-600 font-semibold">
-                    {currentScene === 1 
-                        ? "Click here to see what’s happening..."
-                        : "To middle of the landing dock"
-                    }
-                </p>
-            </div>
-          )}
+             )}
+          </div>
 
           <div className="w-full max-w-5xl mx-auto overflow-hidden">
             <div key={animationKey} className="animate-scene-transition">

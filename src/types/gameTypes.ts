@@ -5,12 +5,18 @@ export interface HoverArea {
   height: string;
 }
 
+// SubElementData is now much richer to support its own interactions
 export interface SubElementData {
   id: number;
   name: string;
-  image: string; 
+  coloredImage: string; // The full-size overlay for the colored species
+  popupImages: {       // The info-card image for the species' own popup
+    desktop: string;
+    mobile: string;
+  };
+  position: HoverArea;      // Position for the colored overlay
   hoverArea: HoverArea;
-  mobileHoverArea?: HoverArea; // Optional: A separate hover area for mobile screens
+  mobileHoverArea?: HoverArea;
   isDiscovered: boolean;
 }
 
@@ -25,7 +31,7 @@ export interface InteractiveElementData {
   };
   position: HoverArea;
   hoverArea: HoverArea;
-  mobileHoverArea?: HoverArea; // Optional: A separate hover area for mobile screens
+  mobileHoverArea?: HoverArea;
   isDiscovered: boolean;
   subElements?: SubElementData[];
   isTruck?: boolean;

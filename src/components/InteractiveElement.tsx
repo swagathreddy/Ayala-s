@@ -6,12 +6,11 @@ interface InteractiveElementProps {
   onHover: (element: InteractiveElementData) => void;
   onClick: (element: InteractiveElementData) => void; 
   isLocked?: boolean;
-  isMobile: boolean; // New prop to determine screen size
+  isMobile: boolean;
 }
 
 const InteractiveElement: React.FC<InteractiveElementProps> = ({ element, onHover, onClick, isLocked, isMobile }) => {
   
-  // Conditionally choose the correct hover area
   const currentHoverArea = isMobile && element.mobileHoverArea ? element.mobileHoverArea : element.hoverArea;
   const cursorStyle = isLocked ? 'cursor-not-allowed' : 'cursor-pointer';
 
@@ -19,7 +18,7 @@ const InteractiveElement: React.FC<InteractiveElementProps> = ({ element, onHove
     <>
       <div
         className={`absolute z-20 ${cursorStyle}`}
-        style={currentHoverArea} // Use the selected hover area
+        style={currentHoverArea}
         onMouseEnter={() => !isLocked && onHover(element)}
         onClick={() => !isLocked && onClick(element)}
         aria-label={`Discover ${element.name}`}

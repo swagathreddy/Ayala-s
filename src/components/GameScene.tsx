@@ -85,9 +85,6 @@ const GameScene: React.FC<GameSceneProps> = ({ sceneData, sceneNumber, onElement
         <button onClick={handleLeftArrow} className="bg-white hover:bg-blue-50 text-blue-600 rounded-full p-2 shadow-lg border-2 border-blue-200">
             <ChevronLeft size={24} />
         </button>
-        <p className="mt-2 text-xs text-gray-600 font-semibold">
-            {sceneNumber === 1 ? "To the Fish Market" : "Back to Sorting Dock"}
-        </p>
     </div>
   );
 
@@ -96,14 +93,12 @@ const GameScene: React.FC<GameSceneProps> = ({ sceneData, sceneNumber, onElement
         <button onClick={handleRightArrow} className="bg-white hover:bg-blue-50 text-blue-600 rounded-full p-2 shadow-lg border-2 border-blue-200">
             <ChevronRight size={24} />
         </button>
-        <p className="mt-2 text-xs text-gray-600 font-semibold">
-            {sceneNumber === 1 ? "To the Bycatch Area" : "Back to Sorting Dock"}
-        </p>
     </div>
   );
 
   return (
     <div className="relative w-full">
+      {/* Mobile-only Top Arrow */}
       {isMobile && (sceneNumber === 1 || sceneNumber === 2) && (
         <div className="flex justify-center mb-2">
           <LeftArrowContent />
@@ -120,7 +115,7 @@ const GameScene: React.FC<GameSceneProps> = ({ sceneData, sceneNumber, onElement
             onHover={handleElementHover} 
             onClick={handleElementClick} 
             isLocked={element.isTruck && !allElementsDiscovered}
-            isMobile={isMobile} // Pass isMobile prop
+            isMobile={isMobile}
           />
         ))}
         {devMode && elementsWithDiscoveryStatus.map((element, index) => {
@@ -133,6 +128,7 @@ const GameScene: React.FC<GameSceneProps> = ({ sceneData, sceneNumber, onElement
         })}
       </div>
 
+      {/* Mobile-only Bottom Arrow */}
       {isMobile && (sceneNumber === 1 || sceneNumber === 3) && (
         <div className="flex justify-center mt-2">
           <RightArrowContent />
