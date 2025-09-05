@@ -3,34 +3,48 @@ import { InteractiveElementData } from '../types/gameTypes';
 
 interface InteractiveElementProps {
   element: InteractiveElementData;
-  onHover: (element: InteractiveElementData) => void;
+  calculatedHoverArea: React.CSSProperties;
+  calculatedPosition: React.CSSProperties;
+  onHover: (elementId: number | null) => void;
   onClick: (element: InteractiveElementData) => void; 
+  isVisuallyHovered: boolean;
+  isDiscovered: boolean;
   isLocked?: boolean;
-  isMobile: boolean;
 }
 
-const InteractiveElement: React.FC<InteractiveElementProps> = ({ element, onHover, onClick, isLocked, isMobile }) => {
+const InteractiveElement: React.FC<InteractiveElementProps> = ({ 
+    element, 
+    calculatedHoverArea,
+    calculatedPosition,
+    onHover, 
+    onClick, 
+    isLocked, 
+    isVisuallyHovered,
+    isDiscovered 
+}) => {
   
-  const currentHoverArea = isMobile && element.mobileHoverArea ? element.mobileHoverArea : element.hoverArea;
   const cursorStyle = isLocked ? 'cursor-not-allowed' : 'cursor-pointer';
+  const showColoredImage = isDiscovered || isVisuallyHovered;
 
   return (
     <>
       <div
         className={`absolute z-20 ${cursorStyle}`}
-        style={currentHoverArea}
-        onMouseEnter={() => !isLocked && onHover(element)}
+        style={calculatedHoverArea}
+        onMouseEnter={() => !isLocked && onHover(element.id)}
+        onMouseLeave={() => !isLocked && onHover(null)}
         onClick={() => !isLocked && onClick(element)}
         aria-label={`Discover ${element.name}`}
       />
 
-      {element.isDiscovered && (
+      {showColoredImage && (
         <img
           src={element.coloredImage}
           alt={element.name}
-          className={`absolute pointer-events-none transition-opacity duration-500 z-20 object-contain ${isLocked ? 'opacity-50' : 'opacity-90'}`}
-          style={element.position}
+          className={`absolute pointer-events-none transition-opacity duration-300 z-20 object-contain ${isLocked ? 'opacity-50' : 'opacity-90'}`}
+          style={calculatedPosition}
           onError={(e) => {
+            // Hide the image if it fails to load
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
           }}
@@ -41,4 +55,3 @@ const InteractiveElement: React.FC<InteractiveElementProps> = ({ element, onHove
 };
 
 export default InteractiveElement;
-

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { X, Truck, ChevronsRight, Home, ShoppingCart, Utensils, ArrowLeft, RefreshCw, Undo2, Factory, Plane, Wheat, PawPrint } from 'lucide-react';
+import { X, Truck, ChevronsRight, Home, ShoppingCart, ArrowLeft, RefreshCw, Undo2, Plane, Wheat, PawPrint } from 'lucide-react';
 
 interface TruckDestinationModalProps {
   onClose: () => void;
   onNavigate: (scene: number) => void;
 }
 
-// Added all the new steps for the Processing journey
 type JourneyStep = 
   | 'initial' 
   | 'market' | 'delivery' | 'shopping' | 'kitchen' | 'final_consumption'
@@ -64,7 +63,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                  <div className="text-center">
                     <img src="/images/Truck/Food.png" alt="Food on Plate" className="journey-image"/>
                     <p className="journey-text">The fish has completed its journey from the sea to the table, providing a nutritious meal.</p>
-                    <div className="flex flex-col gap-3">
+                    <div className="journey-buttons-row">
                         <button onClick={() => { onNavigate(3); onClose(); }} className="btn-primary bg-indigo-500 hover:bg-indigo-600"><Undo2 className="mr-2"/>Go back to Fish Market</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
                         <button onClick={() => setStep('market')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Main Market</button>
@@ -91,7 +90,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Airplane.png" alt="Airport" className="journey-image"/>
                      <p className="journey-text">In the financial year 2023–24, India exported marine products worth US$7.38 billion (₹ 60,523.89 crore), overexploiting fish stocks </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="journey-buttons-row">
                         <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
                     </div>
@@ -102,7 +101,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Poultry.png" alt="Agro Shop" className="journey-image"/>
                     <button onClick={() => setStep('processing_livestock_poultry')} className="btn-primary bg-green-500 hover:bg-green-600 mb-4">What's Next? <ChevronsRight/></button>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="journey-buttons-row">
                         <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
                     </div>
@@ -113,7 +112,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Poultry_farm.png" alt="Poultry Farm" className="journey-image"/>
                      <button onClick={() => setStep('processing_livestock_final')} className="btn-primary bg-green-500 hover:bg-green-600 mb-4">What's Next? <ChevronsRight/></button>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="journey-buttons-row">
                         <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
                     </div>
@@ -124,7 +123,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Your_plate.png" alt="Your Plate" className="journey-image"/>
                     <p className="journey-text">Over the last two decades, there has been a growing demand for bycatch fish from the poultry industry. Poultry production is currently growing faster in India than elsewhere in Asia as the country’s rising affluence fuels a shift away from vegetarianism. These trends are likely to continue through the next decade, further increasing the demand for fish meal.</p>
-                    <div className="flex flex-col gap-3">
+                    <div className="journey-buttons-row">
                         <button onClick={() => { onNavigate(3); onClose(); }} className="btn-primary bg-indigo-500 hover:bg-indigo-600"><Undo2 className="mr-2"/>Go back to Fish Market</button>
                         <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
@@ -146,7 +145,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Your_pet.png" alt="Your Pet" className="journey-image"/>
                     <p className="journey-text">Pet food is made from small fish, fish heads, or bycatch from trawlers. These are cleaned, cooked, and ground into fishmeal or fish oil, which are then mixed with grains, vitamins, and other ingredients to make kibble or wet food for cats and dogs. Using large amounts of bycatch for pet food can raise concerns about the impact on marine life and the food chain.</p>
-                    <div className="flex flex-col gap-3">
+                    <div className="journey-buttons-row">
                         <button onClick={() => { onNavigate(3); onClose(); }} className="btn-primary bg-indigo-500 hover:bg-indigo-600"><Undo2 className="mr-2"/>Go back to Fish Market</button>
                          <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
@@ -158,7 +157,7 @@ const JourneyStepContent: React.FC<{step: JourneyStep, setStep: React.Dispatch<R
                 <div className="text-center">
                     <img src="/images/Truck/Aquarium.png" alt="Your Aquarium" className="journey-image"/>
                      <p className="journey-text"> Fishmeal constitutes a cheap source of protein and is also an important source of crucial micronutrients, not easily available in other protein alternatives such as soyabean.</p>
-                    <div className="flex flex-col gap-3">
+                    <div className="journey-buttons-row">
                         <button onClick={() => { onNavigate(3); onClose(); }} className="btn-primary bg-indigo-500 hover:bg-indigo-600"><Undo2 className="mr-2"/>Go back to Fish Market</button>
                          <button onClick={() => setStep('processing_factory')} className="btn-secondary"><ArrowLeft className="mr-2"/>Back to Factory</button>
                         <button onClick={() => setStep('initial')} className="btn-secondary"><RefreshCw className="mr-2"/>Back to Truck</button>
@@ -197,9 +196,31 @@ const TruckDestinationModal: React.FC<TruckDestinationModalProps> = ({ onClose, 
         </div>
       </div>
       <style>{`
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; color: white; transition: all 0.3s ease; transform: scale(1); }
+        .btn-primary { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.6rem 1.2rem; /* Reduced padding */
+            border-radius: 0.5rem; 
+            font-weight: 600; 
+            color: white; 
+            transition: all 0.3s ease; 
+            transform: scale(1); 
+            font-size: 0.95rem; /* Slightly reduced font size */
+        }
         .btn-primary:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; color: #4A5568; background-color: #E2E8F0; transition: background-color 0.3s ease; }
+        .btn-secondary { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.5rem 1rem; /* Reduced padding */
+            border-radius: 0.5rem; 
+            font-weight: 500; 
+            color: #4A5568; 
+            background-color: #E2E8F0; 
+            transition: background-color 0.3s ease; 
+            font-size: 0.9rem; /* Slightly reduced font size */
+        }
         .btn-secondary:hover { background-color: #CBD5E0; }
         .journey-image { border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 24rem; margin: 0 auto 1rem; }
         .journey-title { font-size: 1.25rem; font-weight: 600; color: #2D3748; margin-bottom: 1.5rem; }
@@ -212,4 +233,3 @@ const TruckDestinationModal: React.FC<TruckDestinationModalProps> = ({ onClose, 
 };
 
 export default TruckDestinationModal;
-
